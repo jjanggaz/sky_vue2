@@ -4,6 +4,9 @@ import "./style.scss";
 import App from "./App.vue";
 import store from "./store";
 import i18n from "./i18n";
+import { createPinia } from "pinia";
+
+const pinia = createPinia();
 
 Vue.config.productionTip = false;
 
@@ -36,6 +39,7 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
+  pinia,
   i18n,
   render: (h) => h(App),
 }).$mount("#app");
