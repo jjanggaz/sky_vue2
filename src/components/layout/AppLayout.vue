@@ -1,0 +1,67 @@
+<template>
+  <div class="app-layout">
+    <AppSidebar />
+    <div class="main-wrapper">
+      <AppHeader />
+      <main class="main-content">
+        <slot />
+      </main>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import AppSidebar from './AppSidebar.vue'
+import AppHeader from './AppHeader.vue'
+</script>
+
+<style>
+  html, body {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<style scoped lang="scss">
+
+.app-layout {
+  display: flex;
+  height: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  min-width: calc(100% - 260px);
+  //margin-left: 260px; // Sidebar width
+  transition: margin-left .3s ease;
+}
+
+// .sidebar:not(.closed) ~ .main-wrapper {
+//   margin-left: 260px;
+// }
+// .sidebar.closed ~ .main-wrapper {
+//   margin-left: 0;
+// }
+
+.main-content {
+  flex: 1;
+  padding: 16px 16px 40px;
+  padding-top: 16px;
+  background-color: #ffffff;
+  min-height: calc(100vh - 0px); // Header height
+  overflow: hidden;
+}
+
+@media (max-width: $breakpoint-lg) {
+  .main-wrapper {
+    min-width: initial;
+    margin-left: 0;
+  }
+}
+</style>

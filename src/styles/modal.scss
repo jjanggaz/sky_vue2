@@ -1,0 +1,185 @@
+@use "variables" as *;
+
+.modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+.modal-container,
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  padding: 20px 10px 16px 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+.modal-container-large {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  max-width: 1200px;
+  max-height: 90vh;
+  padding: 20px 10px 16px 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 20px 0;
+
+  h3 {
+    color: #202020;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .close-btn {
+    width: 24px;
+    height: 24px;
+    background: url(../assets/icons/ico_modal-close.svg) no-repeat center / 18px auto;
+  }
+}
+.modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 10px 10px 0;
+  -webkit-overflow-scrolling: touch;
+
+  &.with-scroll {
+    overflow-y: auto;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #dddddd;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: #b9b9b9;
+    }
+  }
+}
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px 0 0;
+
+  .btn {
+    width: 100%;
+    height: 40px;
+    padding: 0 16px;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+
+    &:disabled,
+    &:disabled:hover {
+      cursor: not-allowed;
+      background-color: #abaebd !important;
+      color: #ffffff;
+    }
+  }
+
+  .btn:first-child {
+    min-width: 370px;
+    background-color: #222e77;
+    color: #ffffff;
+
+    &:hover {
+      background-color: #29378c;
+    }
+
+    @media (max-width: 768px) {
+      width: calc(65% - 5px);
+      min-width: calc(65% - 5px);
+    }
+  }
+
+  .btn:last-child {
+    background-color: #707489;
+    color: #ffffff;
+    
+    &:hover {
+      background-color: #82869d;
+    }
+
+    @media (max-width: 768px) {
+      width: calc(35% - 5px);
+      min-width: calc(35% - 5px);
+    }
+  }
+
+  .btn-cancel::before {
+    background: none;
+  }
+}
+.modal-footer.lg {
+  justify-content: flex-end;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    padding: 10px 10px 0 0;
+  }
+
+  .btn {
+    width: 200px;
+    min-width: 200px;
+
+    &:first-child {
+      @media (max-width: 768px) {
+        width: calc(65% - 5px);
+        min-width: calc(65% - 5px);
+      }
+    }
+    &:last-child {
+      @media (max-width: 768px) {
+        width: calc(35% - 5px);
+        min-width: calc(35% - 5px);
+      }
+    }
+  }
+
+  .btn-cancel {
+    background-color: #707489;
+    color: #ffffff;
+
+    &:hover {
+      background-color: #82869d;
+    }
+  }
+
+  .btn-confirm {
+    background-color: #222e77;
+    color: #fff;
+
+    &:hover {
+      background-color: #29378c;
+    }
+  }
+}
+.modal-footer.lg {
+  .btn {
+    &:only-child {
+      @media (max-width: 768px) {
+        width: 100%;
+        min-width: 100%;
+      }
+    }
+  }
+}
