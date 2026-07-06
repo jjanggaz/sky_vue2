@@ -31,6 +31,15 @@ const baseRoutes: RouteConfig[] = [
     },
   },
   {
+    path: "/sky",
+    name: "Sky",
+    component: Sky,
+    meta: {
+      requiresAuth: false, // 필요에 따라 true/false
+      titleKey: "pageTitles.sky", // 없으면 생략 가능
+    },
+  },
+  {
     path: "*",
     name: "NotFound",
     component: NotFound,
